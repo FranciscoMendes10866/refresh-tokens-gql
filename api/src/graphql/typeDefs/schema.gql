@@ -1,0 +1,45 @@
+type User {
+  id: ID!
+  username: String!
+  password: String!
+}
+
+type RefreshTokens {
+  id: ID!
+  token: String!
+}
+
+input UserInput {
+  username: String!
+  password: String!
+}
+
+type Session {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type LoginResponse {
+  session: Session!
+  user: User!
+}
+
+type RefreshTokenResponse {
+  session: Session!
+}
+
+type Post {
+  id: ID!
+  title: String!
+}
+
+type Mutation {
+  register(input: UserInput!): User!
+  login(input: UserInput!): LoginResponse!
+  logout(refreshToken: String!): String!
+  refreshToken(refreshToken: String!): RefreshTokenResponse!
+}
+
+type Query {
+  posts: [Post]
+}

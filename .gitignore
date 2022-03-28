@@ -1,0 +1,5 @@
+# api folder
+api/node_modules/
+api/src/db/dev.db
+api/pnpm-lock.yaml
+api/.env
